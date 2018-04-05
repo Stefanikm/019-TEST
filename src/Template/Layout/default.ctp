@@ -13,45 +13,104 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = 'CakePHP: the rapid development php framework';
+$cakeDescription = '018-TEST |';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700" rel="stylesheet">
+    
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        <?= $cakeDescription ?>:
+        <?= $cakeDescription ?>
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
-
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
+    
+    
+    <?= $this->Html->script('jquery-3.3.1.min.js') ?>
+    <?= $this->Html->script('bootstrap.min.js') ?>
+    <?= $this->Html->script('navbar.js') ?>
+    
+    <?= $this->Html->css('bootstrap.min.css') ?>
+    <?= $this->Html->css('main.css') ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
+
+
+
 <body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-            </li>
-        </ul>
-        <div class="top-bar-section">
-            <ul class="right">
-                <li><a target="_blank" href="https://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="https://api.cakephp.org/3.0/">API</a></li>
-            </ul>
-        </div>
-    </nav>
+    
     <?= $this->Flash->render() ?>
-    <div class="container clearfix">
-        <?= $this->fetch('content') ?>
+ 
+    <?php
+        include_once '../src/Template/Pages/navbar.php';
+        include_once '../src/Template/Pages/banner.php';
+    ?>
+    
+<div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+    
+    <div class="my-light domov">	
+        <h4 id="domov"></h4>	
+        <p>	
+            <div class="container">	
+                <?= $this->fetch('content') ?>	
+            </div>	
+        </p>	
     </div>
-    <footer>
+    
+  <div class="my-light-brown napojovy">
+  <h4 id="napojovy"></h4>
+  <p>
+      <div class="container">
+        <h2 class="text-center text-footer">Nápojový</h2>
+        <?php
+            include_once '../src/Template/Pages/napojovy.php';
+        ?>
+      </div>
+  </p>
+  </div>
+  
+  
+  <div class="my-light galeria">
+  <h4 id="galeria"></h4>
+  <p>
+      <h2 class="text-center">Galéria</h2>
+      <div class="container">
+        <?php
+            include_once '../src/Template/Pages/galeria.php';
+        ?>
+      </div>
+  </p>
+  </div>
+    
+  
+  <div class="my-light-brown onas">
+  <h4 id="oNas"></h4>
+  <p>
+      <h2 class="text-center text-footer">O nás</h2>
+      <div class="container">
+        <?php
+            include_once '../src/Template/Pages/about.php';
+        ?>
+      </div>
+  </p>
+  </div>
+  
+</div>
+    
+    <div class="clearfix"></div>
+    
+    <footer class="page-foo">
+        <?php
+            include_once '../src/Template/Pages/footer.php';
+        ?>
     </footer>
+    
 </body>
 </html>
